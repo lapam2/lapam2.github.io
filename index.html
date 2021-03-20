@@ -159,7 +159,7 @@
         
   
     <h1 itemprop="name">
-      <a class="article-title" href="/2021/03/20/hexo错误解决/">报错问题</a>
+      <a class="article-title" href="/2021/03/20/hexo错误解决/">hexo错误解决</a>
     </h1>
   
 
@@ -172,10 +172,14 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <h1 id="ping-github-com超时问题"><a href="#ping-github-com超时问题" class="headerlink" title="ping github.com超时问题"></a>ping github.com超时问题</h1><p><img src="%E7%AC%AC%E4%B8%89%E7%AF%87%E5%8D%9A%E5%AE%A2.assets/image-20210320214157314.png" alt="image-20210320214157314"></p>
+        <h2 id="ping-github-com超时问题："><a href="#ping-github-com超时问题：" class="headerlink" title="ping github.com超时问题："></a>ping github.com超时问题：</h2><p><img src="hexo%E9%94%99%E8%AF%AF%E8%A7%A3%E5%86%B3.assets/image-20210320214157314.png" alt="image-20210320214157314"></p>
 <p>怎么解决？？？</p>
-<h1 id="从hexo-hexo-generate-出错："><a href="#从hexo-hexo-generate-出错：" class="headerlink" title="从hexo hexo generate 出错："></a>从hexo hexo generate 出错：</h1><p><img src="%E7%AC%AC%E4%B8%89%E7%AF%87%E5%8D%9A%E5%AE%A2.assets/image-20210320213854170.png" alt="image-20210320213854170"></p>
-<h1 id="hexo-depoly出错："><a href="#hexo-depoly出错：" class="headerlink" title="hexo depoly出错："></a>hexo depoly出错：</h1><p><img src="%E7%AC%AC%E4%B8%89%E7%AF%87%E5%8D%9A%E5%AE%A2.assets/image-20210320214056941.png" alt="image-20210320214056941"></p>
+<h1 id="从hexo-hexo-generate-出错："><a href="#从hexo-hexo-generate-出错：" class="headerlink" title="从hexo hexo generate 出错："></a>从hexo hexo generate 出错：</h1><p><img src="hexo%E9%94%99%E8%AF%AF%E8%A7%A3%E5%86%B3.assets/image-20210320213854170.png" alt="image-20210320213854170">解决方案：上述错误是由于博文的yaml头部格式不正确导致的，正确格式为</p>
+<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">title: yourtitle</span><br><span class="line">description: your description</span><br><span class="line">tags: </span><br><span class="line"> - tag1</span><br><span class="line"> - tag2</span><br><span class="line">categories: categorie1</span><br><span class="line"></span><br><span class="line">---</span><br><span class="line">以下为正文</span><br><span class="line"></span><br><span class="line">#title的内容中间不能有空格！</span><br><span class="line">#头部和正文之间要使用3个“-”进行分割，3个“-”与头部之间要有一个空行</span><br><span class="line">#注意冒号: 后边要有空格，“-”符号前后都要有空格！</span><br></pre></td></tr></table></figure>
+
+<h1 id="hexo-depoly出错："><a href="#hexo-depoly出错：" class="headerlink" title="hexo depoly出错："></a>hexo depoly出错：</h1><ul>
+<li><img src="hexo%E9%94%99%E8%AF%AF%E8%A7%A3%E5%86%B3.assets/image-20210320214056941.png" alt="image-20210320214056941"></li>
+</ul>
 <p>怎么解决？？</p>
 
       
@@ -241,7 +245,7 @@
       
         <h2 id="git使用"><a href="#git使用" class="headerlink" title="git使用"></a>git使用</h2><figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">#1、将远程仓库克隆到本地</span><br><span class="line">git clone https://gitee.com/gitee用户名/HelloGitee.git</span><br><span class="line"></span><br><span class="line">#2、在本地修改代码，然后将修改的项目添加到git 暂缓区</span><br><span class="line">#3、commit提交并备注提交信息</span><br><span class="line">#4、push 将本地推送到远程仓库，完成</span><br><span class="line">$ git add . #将当前目录所有文件添加到git暂存区</span><br><span class="line">$ git commit -m "my first commit" #提交并备注提交信息</span><br><span class="line">$ git push origin master #将本地提交推送到远程仓库</span><br></pre></td></tr></table></figure>
 
-<h1 id="如何写blog"><a href="#如何写blog" class="headerlink" title="如何写blog"></a>如何写blog</h1><ul>
+<h2 id="如何写blog"><a href="#如何写blog" class="headerlink" title="如何写blog"></a>如何写blog</h2><ul>
 <li><p>利用 hexo + github 搭建</p>
 </li>
 <li><p>第一次搭建过程参考 《如何搭一篇个人博客》 </p>
@@ -278,7 +282,7 @@
 <li><p>lapam2也是俺github的用户名</p>
 </li>
 </ul>
-<h1 id="改过GitHub远程仓库地址"><a href="#改过GitHub远程仓库地址" class="headerlink" title="改过GitHub远程仓库地址"></a>改过GitHub远程仓库地址</h1><p>更改 GitHub远程仓库，则需要更改 blog目录里的  _config.yml文件 的配置，repo仓库需更改！！</p>
+<h2 id="改过GitHub远程仓库地址"><a href="#改过GitHub远程仓库地址" class="headerlink" title="改过GitHub远程仓库地址"></a>改过GitHub远程仓库地址</h2><p>更改 GitHub远程仓库，则需要更改 blog目录里的  _config.yml文件 的配置，repo仓库需更改！！</p>
 <p>不然hexo deploy 时博客内容不会更新, 需要注意！！</p>
 <blockquote>
 <p><img src="git%E5%91%BD%E4%BB%A4&%E5%86%99blog.assets/image-20210320193655804.png" alt="image-20210320193655804"></p>
