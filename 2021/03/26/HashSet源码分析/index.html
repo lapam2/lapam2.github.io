@@ -8,17 +8,17 @@
   <link rel="dns-prefetch" href="http://yoursite.com">
   <title>HashSet源码分析 | Hexo</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="Set接口实现类比较 ：Collection接口 继承 Iterable 接口。List 接口 和Set接口是  Collection接口的两个子接口。Set接口有  HashSet实现类，LinkedHashSet实现类，TreeSet实现类。 HashSet底层实现：源码分析：LinkedHashSet底层实现：源码分析：TreeSet底层实现：源码分析：">
+  <meta name="description" content="Set接口实现类比较 ：Collection接口 继承 Iterable 接口。List 接口 和Set接口是  Collection接口的两个子接口。Set接口有  HashSet实现类，LinkedHashSet实现类，TreeSet实现类。 HashSet底层实现：源码分析：12345public HashSet() &amp;#123;        map = new HashMap&amp;lt;&amp;">
 <meta property="og:type" content="article">
 <meta property="og:title" content="HashSet源码分析">
 <meta property="og:url" content="http://yoursite.com/2021/03/26/HashSet源码分析/index.html">
 <meta property="og:site_name" content="Hexo">
-<meta property="og:description" content="Set接口实现类比较 ：Collection接口 继承 Iterable 接口。List 接口 和Set接口是  Collection接口的两个子接口。Set接口有  HashSet实现类，LinkedHashSet实现类，TreeSet实现类。 HashSet底层实现：源码分析：LinkedHashSet底层实现：源码分析：TreeSet底层实现：源码分析：">
+<meta property="og:description" content="Set接口实现类比较 ：Collection接口 继承 Iterable 接口。List 接口 和Set接口是  Collection接口的两个子接口。Set接口有  HashSet实现类，LinkedHashSet实现类，TreeSet实现类。 HashSet底层实现：源码分析：12345public HashSet() &amp;#123;        map = new HashMap&amp;lt;&amp;">
 <meta property="og:locale" content="en">
-<meta property="og:updated_time" content="2021-03-26T03:25:00.435Z">
+<meta property="og:updated_time" content="2021-03-28T08:14:20.925Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="HashSet源码分析">
-<meta name="twitter:description" content="Set接口实现类比较 ：Collection接口 继承 Iterable 接口。List 接口 和Set接口是  Collection接口的两个子接口。Set接口有  HashSet实现类，LinkedHashSet实现类，TreeSet实现类。 HashSet底层实现：源码分析：LinkedHashSet底层实现：源码分析：TreeSet底层实现：源码分析：">
+<meta name="twitter:description" content="Set接口实现类比较 ：Collection接口 继承 Iterable 接口。List 接口 和Set接口是  Collection接口的两个子接口。Set接口有  HashSet实现类，LinkedHashSet实现类，TreeSet实现类。 HashSet底层实现：源码分析：12345public HashSet() &amp;#123;        map = new HashMap&amp;lt;&amp;">
   
     <link rel="alternative" href="/atom.xml" title="Hexo" type="application/atom+xml">
   
@@ -176,7 +176,9 @@
       
         <hr>
 <h2 id="Set接口实现类比较-："><a href="#Set接口实现类比较-：" class="headerlink" title="Set接口实现类比较 ："></a>Set接口实现类比较 ：</h2><p>Collection接口 继承 Iterable 接口。List 接口 和Set接口是  Collection接口的两个子接口。Set接口有  HashSet实现类，LinkedHashSet实现类，TreeSet实现类。</p>
-<h2 id="HashSet底层实现："><a href="#HashSet底层实现：" class="headerlink" title="HashSet底层实现："></a>HashSet底层实现：</h2><h2 id="源码分析："><a href="#源码分析：" class="headerlink" title="源码分析："></a>源码分析：</h2><h2 id="LinkedHashSet底层实现："><a href="#LinkedHashSet底层实现：" class="headerlink" title="LinkedHashSet底层实现："></a>LinkedHashSet底层实现：</h2><h2 id="源码分析：-1"><a href="#源码分析：-1" class="headerlink" title="源码分析："></a>源码分析：</h2><h2 id="TreeSet底层实现："><a href="#TreeSet底层实现：" class="headerlink" title="TreeSet底层实现："></a>TreeSet底层实现：</h2><h2 id="源码分析：-2"><a href="#源码分析：-2" class="headerlink" title="源码分析："></a>源码分析：</h2>
+<h2 id="HashSet底层实现："><a href="#HashSet底层实现：" class="headerlink" title="HashSet底层实现："></a>HashSet底层实现：</h2><h2 id="源码分析："><a href="#源码分析：" class="headerlink" title="源码分析："></a>源码分析：</h2><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">public</span> <span class="title">HashSet</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        map = <span class="keyword">new</span> HashMap&lt;&gt;();</span><br><span class="line">    &#125;</span><br></pre></td></tr></table></figure>
+
+<h2 id="LinkedHashSet底层实现："><a href="#LinkedHashSet底层实现：" class="headerlink" title="LinkedHashSet底层实现："></a>LinkedHashSet底层实现：</h2><h2 id="源码分析：-1"><a href="#源码分析：-1" class="headerlink" title="源码分析："></a>源码分析：</h2><h2 id="TreeSet底层实现："><a href="#TreeSet底层实现：" class="headerlink" title="TreeSet底层实现："></a>TreeSet底层实现：</h2><h2 id="源码分析：-2"><a href="#源码分析：-2" class="headerlink" title="源码分析："></a>源码分析：</h2>
       
 
       
