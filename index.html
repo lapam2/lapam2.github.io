@@ -468,9 +468,21 @@
       
         <hr>
 <h2 id="Set接口实现类比较-："><a href="#Set接口实现类比较-：" class="headerlink" title="Set接口实现类比较 ："></a>Set接口实现类比较 ：</h2><p>Collection接口 继承 Iterable 接口。List 接口 和Set接口是  Collection接口的两个子接口。Set接口有  HashSet实现类，LinkedHashSet实现类，TreeSet实现类。</p>
-<h2 id="HashSet底层实现："><a href="#HashSet底层实现：" class="headerlink" title="HashSet底层实现："></a>HashSet底层实现：</h2><h2 id="源码分析："><a href="#源码分析：" class="headerlink" title="源码分析："></a>源码分析：</h2><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">public</span> <span class="title">HashSet</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        map = <span class="keyword">new</span> HashMap&lt;&gt;();</span><br><span class="line">    &#125;</span><br></pre></td></tr></table></figure>
-
-<h2 id="LinkedHashSet底层实现："><a href="#LinkedHashSet底层实现：" class="headerlink" title="LinkedHashSet底层实现："></a>LinkedHashSet底层实现：</h2><h2 id="源码分析：-1"><a href="#源码分析：-1" class="headerlink" title="源码分析："></a>源码分析：</h2><h2 id="TreeSet底层实现："><a href="#TreeSet底层实现：" class="headerlink" title="TreeSet底层实现："></a>TreeSet底层实现：</h2><h2 id="源码分析：-2"><a href="#源码分析：-2" class="headerlink" title="源码分析："></a>源码分析：</h2>
+<h2 id="HashSet底层实现："><a href="#HashSet底层实现：" class="headerlink" title="HashSet底层实现："></a>HashSet底层实现：</h2><ol>
+<li><p>HashSet 底层是HashMap：数组+链表+红黑树</p>
+</li>
+<li><p>添加一个元素时，先得到hash值，–会转成–&gt;索引值</p>
+</li>
+<li><p>找到存储数据表table,看这个索引位置是否已存放元素</p>
+</li>
+<li><p>如果没有，直接加入</p>
+</li>
+<li><p>如果有，调用equals()比较。如果相同，放弃添加；如果不相同，则添加到链表最后。</p>
+</li>
+<li><p>在jdk8中，如果一条链表元素个数有8个或超过8个，且table数组大小有64个，则将该条链表会进行树化（红黑树）</p>
+        
+          <a class="article-more-a" href="/2021/03/26/HashSet源码分析/#more">more >></a>
+        
       
 
       
