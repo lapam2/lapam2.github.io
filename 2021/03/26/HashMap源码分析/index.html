@@ -8,17 +8,52 @@
   <link rel="dns-prefetch" href="http://yoursite.com">
   <title>HashMap源码分析 | Hexo</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="Set接口实现类比较 ：Collection接口 继承 Iterable 接口。List 接口 和Set接口是  Collection接口的两个子接口。Set接口有  HashSet实现类，LinkedHashSet实现类，TreeSet实现类。 HashSet底层实现：源码分析：LinkedHashSet底层实现：源码分析：TreeSet底层实现：源码分析：Map接口实现类比较 ：Iterab">
+  <meta name="description" content="Map接口实现类比较 ：Iterable 接口 有Collection接口和Map接口 两个子接口。java.util.Collection 和 java.util.Map。java.lang.Iterable Map接口 继承 Iterable 接口。Map接口有  HashMap实现类，LinkedHashMap实现类，TreeMap实现类。 HashMap底层实现：         源码分">
 <meta property="og:type" content="article">
 <meta property="og:title" content="HashMap源码分析">
 <meta property="og:url" content="http://yoursite.com/2021/03/26/HashMap源码分析/index.html">
 <meta property="og:site_name" content="Hexo">
-<meta property="og:description" content="Set接口实现类比较 ：Collection接口 继承 Iterable 接口。List 接口 和Set接口是  Collection接口的两个子接口。Set接口有  HashSet实现类，LinkedHashSet实现类，TreeSet实现类。 HashSet底层实现：源码分析：LinkedHashSet底层实现：源码分析：TreeSet底层实现：源码分析：Map接口实现类比较 ：Iterab">
+<meta property="og:description" content="Map接口实现类比较 ：Iterable 接口 有Collection接口和Map接口 两个子接口。java.util.Collection 和 java.util.Map。java.lang.Iterable Map接口 继承 Iterable 接口。Map接口有  HashMap实现类，LinkedHashMap实现类，TreeMap实现类。 HashMap底层实现：         源码分">
 <meta property="og:locale" content="en">
-<meta property="og:updated_time" content="2021-03-28T08:19:14.617Z">
+<meta property="og:image" content="http://yoursite.com/pic/image-20210329110540547.png">
+<meta property="og:image" content="http://yoursite.com/pic/image-20210329111217372.png">
+<meta property="og:image" content="http://yoursite.com/pic/image-20210329111357041.png">
+<meta property="og:image" content="http://yoursite.com/pic/image-20210329141141860.png">
+<meta property="og:image" content="http://yoursite.com/pic/image-20210329141546541.png">
+<meta property="og:image" content="http://yoursite.com/pic/image-20210329141703542.png">
+<meta property="og:image" content="http://yoursite.com/pic/image-20210329141747601.png">
+<meta property="og:image" content="http://yoursite.com/pic/image-20210329141823983.png">
+<meta property="og:image" content="http://yoursite.com/pic/image-20210329141902811.png">
+<meta property="og:image" content="http://yoursite.com/pic/image-20210329142221408.png">
+<meta property="og:image" content="http://yoursite.com/pic/image-20210329142432906.png">
+<meta property="og:image" content="http://yoursite.com/pic/image-20210329143012799.png">
+<meta property="og:image" content="http://yoursite.com/pic/image-20210329143046638.png">
+<meta property="og:image" content="http://yoursite.com/pic/image-20210329143151782.png">
+<meta property="og:image" content="http://yoursite.com/pic/image-20210329143556814.png">
+<meta property="og:image" content="http://yoursite.com/pic/image-20210329143915970.png">
+<meta property="og:image" content="http://yoursite.com/pic/image-20210329144117828.png">
+<meta property="og:image" content="http://yoursite.com/pic/image-20210329144310987.png">
+<meta property="og:image" content="http://yoursite.com/pic/image-20210329144650580.png">
+<meta property="og:image" content="http://yoursite.com/pic/image-20210329144911114.png">
+<meta property="og:image" content="http://yoursite.com/pic/image-20210329145215217.png">
+<meta property="og:image" content="http://yoursite.com/pic/image-20210329145311297.png">
+<meta property="og:image" content="http://yoursite.com/pic/image-20210329145452023.png">
+<meta property="og:image" content="http://yoursite.com/pic/image-20210329145513994.png">
+<meta property="og:image" content="http://yoursite.com/pic/image-20210329150040879.png">
+<meta property="og:image" content="http://yoursite.com/pic/image-20210329151242269.png">
+<meta property="og:image" content="http://yoursite.com/pic/image-20210329154211076.png">
+<meta property="og:image" content="http://yoursite.com/pic/image-20210329182242287.png">
+<meta property="og:image" content="http://yoursite.com/pic/image-20210329185302827.png">
+<meta property="og:image" content="http://yoursite.com/pic/image-20210329185731593.png">
+<meta property="og:image" content="http://yoursite.com/pic/image-20210329190209871.png">
+<meta property="og:image" content="http://yoursite.com/pic/image-20210329190342941.png">
+<meta property="og:image" content="http://yoursite.com/pic/image-20210329190947283.png">
+<meta property="og:image" content="http://yoursite.com/pic/image-20210329191340209.png">
+<meta property="og:updated_time" content="2021-03-29T11:40:13.186Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="HashMap源码分析">
-<meta name="twitter:description" content="Set接口实现类比较 ：Collection接口 继承 Iterable 接口。List 接口 和Set接口是  Collection接口的两个子接口。Set接口有  HashSet实现类，LinkedHashSet实现类，TreeSet实现类。 HashSet底层实现：源码分析：LinkedHashSet底层实现：源码分析：TreeSet底层实现：源码分析：Map接口实现类比较 ：Iterab">
+<meta name="twitter:description" content="Map接口实现类比较 ：Iterable 接口 有Collection接口和Map接口 两个子接口。java.util.Collection 和 java.util.Map。java.lang.Iterable Map接口 继承 Iterable 接口。Map接口有  HashMap实现类，LinkedHashMap实现类，TreeMap实现类。 HashMap底层实现：         源码分">
+<meta name="twitter:image" content="http://yoursite.com/pic/image-20210329110540547.png">
   
     <link rel="alternative" href="/atom.xml" title="Hexo" type="application/atom+xml">
   
@@ -175,10 +210,29 @@
     <div class="article-entry" itemprop="articleBody">
       
         <hr>
-<h2 id="Set接口实现类比较-："><a href="#Set接口实现类比较-：" class="headerlink" title="Set接口实现类比较 ："></a>Set接口实现类比较 ：</h2><p>Collection接口 继承 Iterable 接口。List 接口 和Set接口是  Collection接口的两个子接口。Set接口有  HashSet实现类，LinkedHashSet实现类，TreeSet实现类。</p>
-<h2 id="HashSet底层实现："><a href="#HashSet底层实现：" class="headerlink" title="HashSet底层实现："></a>HashSet底层实现：</h2><h2 id="源码分析："><a href="#源码分析：" class="headerlink" title="源码分析："></a>源码分析：</h2><h2 id="LinkedHashSet底层实现："><a href="#LinkedHashSet底层实现：" class="headerlink" title="LinkedHashSet底层实现："></a>LinkedHashSet底层实现：</h2><h2 id="源码分析：-1"><a href="#源码分析：-1" class="headerlink" title="源码分析："></a>源码分析：</h2><h2 id="TreeSet底层实现："><a href="#TreeSet底层实现：" class="headerlink" title="TreeSet底层实现："></a>TreeSet底层实现：</h2><h2 id="源码分析：-2"><a href="#源码分析：-2" class="headerlink" title="源码分析："></a>源码分析：</h2><h2 id="Map接口实现类比较-："><a href="#Map接口实现类比较-：" class="headerlink" title="Map接口实现类比较 ："></a>Map接口实现类比较 ：</h2><p>Iterable 接口 有Collection接口和Map接口 两个子接口。java.util.Collection 和 java.util.Map。java.lang.Iterable</p>
+<h2 id="Map接口实现类比较-："><a href="#Map接口实现类比较-：" class="headerlink" title="Map接口实现类比较 ："></a>Map接口实现类比较 ：</h2><p>Iterable 接口 有Collection接口和Map接口 两个子接口。java.util.Collection 和 java.util.Map。java.lang.Iterable</p>
 <p>Map接口 继承 Iterable 接口。Map接口有  HashMap实现类，LinkedHashMap实现类，TreeMap实现类。</p>
-<h2 id="HashMap底层实现："><a href="#HashMap底层实现：" class="headerlink" title="HashMap底层实现："></a>HashMap底层实现：</h2><h2 id="源码分析：-3"><a href="#源码分析：-3" class="headerlink" title="源码分析："></a>源码分析：</h2><h2 id="LinkedHashMap底层实现："><a href="#LinkedHashMap底层实现：" class="headerlink" title="LinkedHashMap底层实现："></a>LinkedHashMap底层实现：</h2><h2 id="源码分析：-4"><a href="#源码分析：-4" class="headerlink" title="源码分析："></a>源码分析：</h2><h2 id="HashMap底层实现：-1"><a href="#HashMap底层实现：-1" class="headerlink" title="HashMap底层实现："></a>HashMap底层实现：</h2><h2 id="源码分析：-5"><a href="#源码分析：-5" class="headerlink" title="源码分析："></a>源码分析：</h2><h2 id="常见问题："><a href="#常见问题：" class="headerlink" title="常见问题："></a>常见问题：</h2><ol>
+<h2 id="HashMap底层实现："><a href="#HashMap底层实现：" class="headerlink" title="HashMap底层实现："></a>HashMap底层实现：</h2><p><img src="/pic/image-20210329110540547.png" alt="image-20210329110540547"></p>
+<p><img src="/pic/image-20210329111217372.png" alt="image-20210329111217372"></p>
+<p><img src="/pic/image-20210329111357041.png" alt="image-20210329111357041"></p>
+<p><img src="/pic/image-20210329141141860.png" alt="image-20210329141141860"></p>
+<p><img src="/pic/image-20210329141546541.png" alt="image-20210329141546541"></p>
+<p><img src="/pic/image-20210329141703542.png" alt="image-20210329141703542"></p>
+<p><img src="/pic/image-20210329141747601.png" alt="image-20210329141747601"></p>
+<p><img src="/pic/image-20210329141823983.png" alt="image-20210329141823983"></p>
+<p><img src="/pic/image-20210329141902811.png" alt="image-20210329141902811"></p>
+<h2 id="源码分析："><a href="#源码分析：" class="headerlink" title="源码分析："></a>源码分析：</h2><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">HashMap map = <span class="keyword">new</span> HashMap();</span><br><span class="line">map.put(<span class="string">"aava"</span>,<span class="number">10</span>);<span class="comment">//ok</span></span><br><span class="line">map.put(<span class="string">"bhp"</span>,<span class="number">10</span>);<span class="comment">//ok</span></span><br><span class="line">map.put(<span class="string">"cana"</span>,<span class="number">20</span>);<span class="comment">//替换value</span></span><br><span class="line">System.out.println(<span class="string">"map="</span>+map);</span><br></pre></td></tr></table></figure>
+
+<h2 id="LinkedHashMap底层实现："><a href="#LinkedHashMap底层实现：" class="headerlink" title="LinkedHashMap底层实现："></a>LinkedHashMap底层实现：</h2><h2 id="源码分析：-1"><a href="#源码分析：-1" class="headerlink" title="源码分析："></a>源码分析：</h2><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<h2 id="TreeMap底层实现："><a href="#TreeMap底层实现：" class="headerlink" title="TreeMap底层实现："></a>TreeMap底层实现：</h2><p><img src="/pic/image-20210329142221408.png" alt="image-20210329142221408"></p>
+<p><img src="/pic/image-20210329142432906.png" alt="image-20210329142432906"></p>
+<p><img src="/pic/image-20210329143012799.png" alt="image-20210329143012799"></p>
+<p><img src="/pic/image-20210329143046638.png" alt="image-20210329143046638"></p>
+<p><img src="/pic/image-20210329143151782.png" alt="image-20210329143151782"></p>
+<h2 id="源码分析：-2"><a href="#源码分析：-2" class="headerlink" title="源码分析："></a>源码分析：</h2><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<h2 id="常见问题："><a href="#常见问题：" class="headerlink" title="常见问题："></a>常见问题：</h2><ol>
 <li><strong>HashMap 和 Hashtable区别？</strong><ol>
 <li>HashMap 是将键映射到值的对象，key:value都是对象。不能包括重复键，可以包括重复值。但可以存在一个null key ,多个null value。线程不安全，但效率高于Hashtable。HashMap 去掉Hashtable 里的contains方法，添加了containsKey，containsValue方法。</li>
 <li>Hashtable不能包括null key 和null value。线程安全的，方法中有Synchronize，在多个线程访问Hashtable时，不需要再为自己的方法实现同步。</li>
@@ -188,11 +242,41 @@
 <li>HashMap由数组+链表组成。数组是主体，链表是为解决hash冲突存在。</li>
 </ol>
 </li>
-<li><strong>HashSet 实现原理？</strong></li>
-<li><strong>HashMap 怎样解决hash冲突？</strong></li>
-<li><strong>HashMap 为什么线程不安全？</strong></li>
-<li><strong>如何决定使用HashMap 和 TreeMap?</strong></li>
+<li><strong>HashSet 实现原理？</strong><ol>
+<li>底层实现是基于HashMap,（数组+链表+红黑树）</li>
 </ol>
+</li>
+<li><strong>HashMap 怎样解决hash冲突？</strong><ol>
+<li>链表法</li>
+</ol>
+</li>
+<li><strong>HashMap 为什么线程不安全？</strong></li>
+<li><strong>如何决定使用HashMap 和 TreeMap?</strong><ol>
+<li>无序：使用HashMap</li>
+<li>排序：使用TreeMap</li>
+</ol>
+</li>
+</ol>
+<h2 id="Collections工具类"><a href="#Collections工具类" class="headerlink" title="Collections工具类"></a>Collections工具类</h2><p><img src="/pic/image-20210329143556814.png" alt="image-20210329143556814"></p>
+<p><img src="/pic/image-20210329143915970.png" alt="image-20210329143915970"></p>
+<p><img src="/pic/image-20210329144117828.png" alt="image-20210329144117828"></p>
+<p><img src="/pic/image-20210329144310987.png" alt="image-20210329144310987"></p>
+<p><img src="/pic/image-20210329144650580.png" alt="image-20210329144650580"></p>
+<p><img src="/pic/image-20210329144911114.png" alt="image-20210329144911114"></p>
+<p><img src="/pic/image-20210329145215217.png" alt="image-20210329145215217"></p>
+<p><img src="/pic/image-20210329145311297.png" alt="image-20210329145311297"></p>
+<p><img src="/pic/image-20210329145452023.png" alt="image-20210329145452023"></p>
+<p><img src="/pic/image-20210329145513994.png" alt="image-20210329145513994"></p>
+<p><img src="/pic/image-20210329150040879.png" alt="image-20210329150040879"></p>
+<p><img src="/pic/image-20210329151242269.png" alt="image-20210329151242269"></p>
+<p><img src="/pic/image-20210329154211076.png" alt="image-20210329154211076"></p>
+<p><img src="/pic/image-20210329182242287.png" alt="image-20210329182242287"></p>
+<p><img src="/pic/image-20210329185302827.png" alt="image-20210329185302827"></p>
+<p><img src="/pic/image-20210329185731593.png" alt="image-20210329185731593"></p>
+<p><img src="/pic/image-20210329190209871.png" alt="image-20210329190209871"></p>
+<p><img src="/pic/image-20210329190342941.png" alt="image-20210329190342941"></p>
+<p><img src="/pic/image-20210329190947283.png" alt="image-20210329190947283"></p>
+<p><img src="/pic/image-20210329191340209.png" alt="image-20210329191340209"></p>
 
       
 
